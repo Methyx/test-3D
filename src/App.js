@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sphere from "./components/Sphere";
+import Jukebox from "./components/Jukebox";
+import MyAvatar from "./components/MyAvatar";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Canvas className="canvas1">
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[-2, 10, 2]} intensity={1} />
+        <OrbitControls enableZoom={true} />
+        <Sphere />
+
+        <group>
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3, 0]}>
+            <planeBufferGeometry attach="geometry" args={[10, 10]} />
+            <meshStandardMaterial attach="material" color="green" />
+          </mesh>
+        </group>
+      </Canvas>
+      <Canvas className="canvas1">
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[-2, 10, 2]} intensity={1} />
+        <OrbitControls enableZoom={true} />
+        <Jukebox />
+      </Canvas>
+      <Canvas className="canvas1">
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[-2, 10, 2]} intensity={1} />
+        <OrbitControls enableZoom={true} />
+        <MyAvatar />
+      </Canvas>
     </div>
   );
 }
