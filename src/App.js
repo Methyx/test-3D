@@ -8,7 +8,7 @@ import { OrbitControls } from "@react-three/drei";
 function App() {
   return (
     <div className="App">
-      <Canvas className="canvas1">
+      <Canvas className="sphere">
         <ambientLight intensity={0.8} />
         <directionalLight position={[-2, 10, 2]} intensity={1} />
         <OrbitControls enableZoom={true} />
@@ -21,17 +21,17 @@ function App() {
           </mesh>
         </group>
       </Canvas>
-      <Canvas className="canvas1">
+      <Canvas className="jukebox" camera={{ position: [-10, 10, 40], fov: 3 }}>
         <ambientLight intensity={0.8} />
         <directionalLight position={[-2, 10, 2]} intensity={1} />
         <OrbitControls enableZoom={true} />
-        <Jukebox />
+        <Jukebox position={[0, -0.8, 0]} rotation={[0, -Math.PI / 2, 0]} />
       </Canvas>
-      <Canvas className="canvas1">
-        <ambientLight intensity={0.8} />
+      <Canvas className="avatar" camera={{ position: [-20, 20, 50], fov: 2 }}>
+        <ambientLight intensity={1} />
         <directionalLight position={[-2, 10, 2]} intensity={1} />
         <OrbitControls enableZoom={true} />
-        <MyAvatar />
+        <MyAvatar position={[0, -1, 0]} />
       </Canvas>
     </div>
   );

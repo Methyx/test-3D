@@ -9,7 +9,7 @@ const Sphere = () => {
   const textureMap = useLoader(TextureLoader, texture);
   return (
     <mesh ref={mesh}>
-      <sphereBufferGeometry attach="geometry" args={[2, 32]} />
+      <sphereBufferGeometry attach="geometry" args={[1, 32]} />
       <meshStandardMaterial map={textureMap} />
     </mesh>
   );
